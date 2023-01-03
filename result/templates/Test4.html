@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>STEAM STORE GAMES</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../static/dir/gamepad.ico">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="../static/style1.css"/>
+
+  <style>
+    h1,h2{
+      color:#f64975;
+    }
+  </style>
+
+  <!-- Styles -->
+  <style>
+    #chartdiv {
+    width: 100%;
+    height: 500px;
+    }
+    </style>
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/plugins/wordCloud.js"></script>
+    <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+</head>
+
+<body>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-top w3-large w3-padding menu2" style="z-index:3;width:230px;font-weight:bold;background-color:#002845" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container" >
+    <h2 class="w3-padding-64 w3-xxxlarge" style="margin-top:-30px;color:#00cfcc"><b>Menu</b></h2>
+  </div>
+  <div style="color:white">
+    <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray">Home</a><br/> 
+    <a href="/Test1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray blue">Step1 專題主題</a><br/>
+    <a href="/Test2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray pink" >Step2 資料預處理</a><br/>
+    <a href="/Test3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray orange" >Step3 機器學習</a><br/>  
+    <a href="/Test4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray pinnk" >Step4 結論</a><br/>
+    <a href="/Test5" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray yellow" >來試試看吧!</a><br/>  
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-xlarge w3-padding menu2" style="background-color:#002845">
+  <a href="javascript:void(0)" class="w3-button w3-margin-right" onclick="w3_open()" style="color:white">☰</a>
+  <span class="menu2">Menu</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:230px;background-color:#002845;">
+
+  <!-- Header -->  
+  <div class="w3-container";id="showcase">
+    <h1 class="w3-jumbo"  style="margin-top:75px;"><b>電子遊戲用戶評價之智慧評估系統</b></h1>    
+    <hr class="w3-round linee" style="color:#f64975">
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p></div>
+  </div>
+
+  <!-- Services -->
+  <div class="w3-container" id="services" style="margin-top:75px; color:white">
+    <h1 class="w3-xxxlarge"><b>Step4. 結論&未來展望</b></h1>
+    <hr style="width:50px;border:5px " class="w3-round">
+    <!-- HTML -->
+    <div id="chartdiv"></div>
+  
+    <h3>&emsp;&emsp;最初模型的準確率為68%，且好壞遊戲預測準確率差距達至40%，最後藉由Voting System結合7種表現最好的模型及參數，準確率進步至77%，且好壞預測準確率也皆為77%，證明此Voting System的實用性。<br/>
+    &emsp;&emsp;根據決策樹的結果，影響遊戲評價的至要關鍵因素為成就系統、售價以及發行商，以下為本專安給予開發商的建議:
+    <ul>
+      <li><a class="pinnk">成就系統</a>:根據研究，成就系統具有累積性與歷時性，紀錄玩家至今的各項遊玩紀錄，而成就系統就像是遊戲中的另外一種遊戲目標，可以延長遊戲壽命，因次建議開發商可以開發多元的成就系統。</li>
+      <li><a class="pinnk">價格</a>:價格不是至關重要的指標，最終消費者還是會回到遊戲本身，若入不敷出，遊戲品質便無法提升，因此建議開發商不要犧牲品質並採取低價策略。</li>
+      <li><a class="pinnk">發行商</a>:主要負責為行銷及銷售，且熟知行銷策略，也會因應不同市場(國家)決定遊戲創作方向，因此選擇有經驗的遊戲發行商也是至關重要的關鍵因素。</li>
+    </ul><hr/>
+    <ul>
+    <li>因Steam資料集未有評論內容，期望未來能運用<a class="pinnk">NLP(神經語言規劃)</a>，透過Language Model探討文字與評價間的關係，以作為預測好評的變數之一。</li>
+    <li>因Steam資料集中沒有銷售量相關資訊，期望未來能夠利用銷售量進行預測目標，以探討影響銷售的關鍵因子，以提供遊戲開發商更多的決策建議。</li>
+    </ul></h3>
+  </div>
+</div>
+
+<!-- W3.CSS Container -->
+<div class="w3-container w3-padding-32 w3-css">
+  <p class="w3-right">Powered by
+  <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
+</div>
+
+<script>
+  // Script to open and close sidebar
+  function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+  }
+   
+  function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+  }
+  
+  // Modal Image Gallery
+  function onClick(element) {
+    document.getElementById("img01").src = element.src;
+    document.getElementById("modal01").style.display = "block";
+    var captionText = document.getElementById("caption");
+    captionText.innerHTML = element.alt;
+  }
+</script>
+
+<!-- Chart code -->
+<script>
+  am4core.ready(function() {
+  
+  // Themes begin
+  am4core.useTheme(am4themes_animated);
+  // Themes end
+  
+  var chart = am4core.create("chartdiv", am4plugins_wordCloud.WordCloud);
+  var series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
+  
+  series.accuracy = 4;
+  series.step = 15;
+  series.rotationThreshold = 0.7;
+  series.maxCount = 200;
+  series.minWordLength = 2;
+  series.labels.template.margin(4,4,4,4);
+  series.maxFontSize = am4core.percent(30);
+  
+  series.text = "2.5d 2d 3d 4x 6dof atv abstract action addictive adventure agriculture aliens america anime arcade assassinatmospheric bmx baseball basketball batman beautiful benchmark bikes blood bowling building crpg capitalism cartoon cartoony casual cats chess cinematic classic clicker colorful comedy competitive conspiracy controller conversation crafting crime crowdfunded cute cyberpunk cycling dark demons destruction detective difficult dinosaurs diplomacy documentary dog dragons drama driving economy education emotional epic episodic experience experimental exploration fmv fps faith fantasy fighting fishing flight football foreign funny futuristic gambling gamemaker golf gore gothic hacking hardware heist historical hockey horror horses hunting illuminati indie investigation isometric jrpg jet kickstarter lego lemmings linear logic loot lovecraftian mmorpg moba magic management mars masterpiece mature mechs medieval memes metroidvania militaryminigames minimalist mining mod moddable modern motocross motorbike movie multiplayer music mystery mythology nsfw narration naval ninja noir nonlinear nudity offroad otome parkour philisophical physics pinball pirates platformer political politics pool programming psychedelic psychological puzzle pve pvp rpg rpgmaker rts racing realistic relaxing remake retro rhythm robots romance rome runner sailing sandbox satire science sequel shooter short simulation singleplayer skateboarding skating skiing sniper snow snowboarding soccer software sokoban soundtrack space spelling sports stealth steampunk strategy stylized submarine superhero supernatural surreal survival swordplay tactical tanks tennis thriller trackir trading trains transhumanism tutorial typing underground underwater unforgiving utilities vr vampire violent voxel wwar wargame werewolves western wrestling"; 
+  
+  series.colors = new am4core.ColorSet();
+  series.colors.passOptions = {}; // makes it loop
+  
+  //series.labelsContainer.rotation = 45;
+  series.angles = [0,-90];
+  series.fontWeight = "700"
+  
+  setInterval(function () {
+    series.dataItems.getIndex(Math.round(Math.random() * (series.dataItems.length - 1))).setValue("value", Math.round(Math.random() * 10));
+   }, 10000)
+  
+  }); // end am4core.ready()
+</script>
+
+</body>
+</html>

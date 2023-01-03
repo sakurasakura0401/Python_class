@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>STEAM STORE GAMES</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../static/dir/gamepad.ico">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="../static/style1.css"/>
+
+  <style>
+    h1,h2{
+      color:#e898ac;
+    }
+  </style>
+
+  <!-- Styles -->
+  <style>
+    #chartdiv {
+      width:80%;
+      height: 650px;
+      margin:auto;  
+    }
+  </style>    
+  <!-- Resources -->
+  <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/plugins/sunburst.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script> 
+</head>
+
+<body>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-top w3-large w3-padding menu2" style="z-index:3;width:230px;font-weight:bold;background-color:#002845;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container" >
+    <h2 class="w3-padding-64 w3-xxxlarge" style="margin-top:-30px;color:#00cfcc"><b>Menu</b></h2>
+  </div>
+  <div style="color:white">
+    <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray">Home</a><br/> 
+    <a href="/Test1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray blue">Step1 專題主題</a><br/>
+    <a href="/Test2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray pink" >Step2 資料預處理</a><br/>
+    <a href="/Test3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray orange" >Step3 機器學習</a><br/>  
+    <a href="/Test4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray pinnk" >Step4 結論</a><br/>
+    <a href="/Test5" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray yellow" >來試試看吧!</a><br/>  
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-xlarge w3-padding" style="background-color:#002845">
+  <a href="javascript:void(0)" class="w3-button w3-margin-right" onclick="w3_open()" style="color:white">☰</a>
+  <span class="menu2">Menu</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:230px; background-color:#002845;">
+
+  <!-- Header -->
+  
+  <div class="w3-container";id="showcase">
+    <h1 class="w3-jumbo"  style="margin-top:75px;"><b>電子遊戲用戶評價之智慧評估系統</b></h1>    
+    <hr class="w3-round linee" style="color:#e898ac">
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="w3-container" id="services" style="margin-top:75px; color:white">
+    <h1 class="w3-xxxlarge"><b>Step2 資料預處理</b></h1>
+    <hr style="width:50px;border:5px " class="w3-round">
+
+    <h2>Step2-0 使用工具</h2>
+    <h3>&emsp;&emsp;使用到的Python套件有Numpy、Pandas，以及Jupyter平台。</h3>
+    <h2>Step 2-1欄位清理</h2>
+    <h3>&emsp;&emsp;藉由Pandas將資料表合併，並且扣除重複欄位以及定義新欄位。</h3>
+    <h2>Step 2-2清理資料SOP</h2>
+    <h3><ol>
+      <li>空值處理。</li>
+      <li>將類別資料轉成label encoding、one-hot encoding。
+      </li>數值資料區間值修正(單一欄位修正、採對數轉換)。
+      <li>部分數值資料標準化(採區間係數)。</li>
+    </ol></h3>
+
+    <div style="overflow-x:auto">
+    <table border="1" style="width:80%;margin:auto">
+      <tr>
+        <td><h2>※Label Encoding:</h2>
+        <h3>&emsp;&emsp;部分資料為字串型態，因此需先轉換成數值才能放入機器學習的模型之中。</h3></td>
+      </tr>
+      <tr><th>Input<br/><img src="../static/dir/screenprint/LCinput.png"></th></tr>
+      <tr><th>Output<br/><img src="../static/dir/screenprint/LCoutput.png"></th></tr>
+    </table>
+    <br/>
+    <table border="1" style="width:80%;margin:auto">
+      <tr>
+        <td><h2>※One-hot Encoding</h2>
+        <h3>&emsp;&emsp;將數值型態資料轉成二元特徵資料。</h3></td>
+      </tr>
+      <tr>
+      <th>Input<br/><img src="../static/dir/screenprint/OHIinput.png"></th></tr>
+      <tr><th>Output<br/><img src="../static/dir/screenprint/OHIoutput.png"></th></tr>
+    </table>
+    <br/>
+    <table border="1" style="width:80%;margin:auto">
+      <tr>
+        <td><h2>※Booling Encoding</h2>
+        <h3>&emsp;&emsp;由於因為部分同個欄位內有較多類別資料，若使用One-hot encoding會導致欄位大量增加，故將裡面有出現的全部資料設置為欄位，當每筆資料有那格欄位時數值為1，沒有則數值為0。</h3></td>
+      </tr>
+      <tr><th>Input<br/><img src="../static/dir/screenprint/Boo1.png"><img src="../static//dir/screenprint/Boo2.png"></th></tr>
+      <tr><th>Process<br/><img src="../static/dir/screenprint/Boo2.1.png"><img src="../static/dir/screenprint/Boo2.2.png"></th></tr>
+      <tr><th>Output<br/><img src="../static/dir/screenprint/Boo3.png"></th></tr>
+    </table>
+    <br/>
+    <table border="1" style="width:80%;margin:auto">
+      <tr>
+        <td>
+          <h2>※Normalized</h2>
+          <h3>&emsp;&emsp;當數值型態資料不符合常態分佈時，需做類常態化(log(1+x))，以取代原欄位。</h3>
+        </td>
+      </tr>
+      <tr><th>Input<br/><img src="../static/dir/screenprint/log1.png"></th></tr>
+      <tr><th>Ouput<br/><img src="../static/dir/screenprint/log2.png"></th></tr>
+    </table>
+    <br/>
+    <table border="1" style="width:80%;margin:auto">
+      <tr>
+        <td>
+          <h2>※Other Method</h2>
+          <h3>&emsp;&emsp;依照專業知識判斷以現有的欄位，定義出新的欄位。</h3>
+        </td>
+      </tr> 
+      <tr><th>Input 1<br/><img src="../static/dir/screenprint/OM1.1.png"><img src="../static//dir/screenprint/OM1.2.png">
+      <img src="../static/dir/screenprint/OM1.3.png"><img src="../static//dir/screenprint/OM1.4.png"></th></tr>
+      <tr><th>Output 1<br/><img src="../static/dir/screenprint/OM1.5.png"></th></tr>
+      <tr><th>Input 2<br/><img src="../static/dir/screenprint/OM2.1.png"></th></tr>
+      <tr><th>Output 2<br/><img src="../static/dir/screenprint/OM2.2.png"></th></tr>
+      <tr><th>Input 3<br/><img src="../static/dir/screenprint/OM3.1.png"><img src="../static/dir/screenprint/OM3.2.png"></th></tr>
+      <tr><th>Output 3<br/><img src="../static/dir/screenprint/OM3.3.png"></th></tr>
+    </table>
+    </div> 
+
+    <h2>Step2-3 資料清洗結果如下圖所示:</h2>
+      <!-- HTML -->
+      <div id="chartdiv"></div>
+  </div>
+</div>
+
+<!-- W3.CSS Container -->
+<div class="w3-container w3-padding-32 w3-css">
+  <p class="w3-right">Powered by
+  <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+<!-- Chart code -->
+<script>
+  am4core.ready(function() {
+  
+  // Themes begin
+  am4core.useTheme(am4themes_animated);
+  // Themes end
+  
+  // create chart
+  var chart = am4core.create("chartdiv", am4plugins_sunburst.Sunburst);
+  chart.padding(0,0,0,0);
+  chart.radius = am4core.percent(98);
+  
+  chart.data = [{
+    name: "data",
+    children: [
+      { name: "appid", value: 1 },
+      { name: "name", value: 1 },
+      { name: "required_age", value:1},
+      { name: "dlc", value:1},
+      { name: "supported_languages", value:1},
+      { name: "publishers", value:1},
+      { name: "categories", value:1},
+      { name: "coming_soon", value:1},
+      { name: "price", value:1},
+      { name: "total_positive,", value:1},
+      { name: "total_negative", value:1},
+      { name: "owners", value:1},
+      { name: "tages", value:1},
+      { name: "genres", value:1},
+      { name: "achievements", value:1},
+      { name: "release_date", value:1},
+      { name: "average_foever", value:1},
+      { name: "median_foever", value:1},
+      { name: "platforms", value:1}, 
+      { name: "supported_audio", value:1},
+      { name: "movie", value:1},
+      { name: "ratings", value:1}
+    ]
+  },
+
+  {
+    name: "Label\nEncoding",
+    children: [
+    {
+    name: "developer",
+    children:[
+    {name:"developer_label",value:1},]
+    },
+
+    {
+      name: "publisher",
+      children:[
+      {name:"publisher_label",value:1},]   
+    },
+
+    {
+      name: "platforms_label",
+      children:[
+      {name:"platforms_label",value:1},
+      ]   
+    },
+
+    {
+      name: "owners",
+      children:[
+      {name:"owners_label",value:1},
+      ]   
+    }]
+    },
+
+
+  {
+    name: "One-hot\nEncoding",
+    children: [
+      { 
+        name: "type",
+        children: [
+        {name:"type_advertising",value:1},
+        {name:"type_game",value:1},
+        {name:"type_music",value:1},
+        {name:"type_dlc",value:1}]},
+      {
+        name: "platforms",
+        children: [
+          { name: "platforms_windows", value: 1 },
+          { name: "platforms_mac", value: 1 },
+          { name: "platforms_linux", value: 1 },
+          { name: "platforms_windows_only", value: 1 },
+          { name: "platforms_windows_mac", value: 1 },
+          { name: "platforms_windows_linux", value: 1 },
+          { name: "platforms_windows_mac_linux", value: 1 }]
+      }]
+  },
+
+
+  {
+    name: "log",
+    children: [
+      {
+        name: "developer",
+        children:[
+        {name:"developer_count_log",value:1},
+        ]   
+      },
+
+      {
+        name: "publisher",
+        children:[
+        {name:"publisher_count_loge",value:1},
+        ]   
+      },
+
+      { name: "average",
+      children: [
+        { name: "average_foeverlog_log",value:1},
+        { name: "median_foeverlog_log",value:1},
+        ]
+      },
+
+      {
+        name: "required_age",
+        children:[
+        {name:"required_age_log",value:1},
+        ]   
+      },
+
+      { name: "release_date",
+      children: [
+        { name: "leadtime_log",value:1},
+        ]
+      },
+
+      {name: "supported_languages",
+        children:[
+        {name:"supported_languages_count_log",value:1},
+        ]   
+      },
+
+      { name: "price",  
+		    children: [
+        {name:"price_log",value:1},
+        ]
+      },
+
+      {
+        name: "achievements",
+        children: [
+        { name: "achievements_log", value: 1 },
+        ]
+      },
+    ]
+  },
+
+
+  {
+    name: "Booling\nEncoding",
+    children: [
+      {
+        name: "platforms",
+        children: [
+          { name: "platforms_mac_only", value: 1 },
+          { name: "platforms_linux_only", value: 1 },
+          { name: "platforms_mac_linux", value: 1 },       
+        ]
+      },
+
+      {
+        name: "categories", 
+        children: [
+          { name: "categories_Single_player", value: 1 },
+          { name: "categories_Co-op", value: 1 },
+          { name: "categories_PvP", value: 1 },
+          { name: "categories_Anti_Cheat_enabled", value: 1 },
+          { name: "categories_Multi_player", value: 1 },
+        ]
+      },
+
+      { 
+        name: "genres", 
+        children: [
+          { name: "genres_Adventure", value: 1 },
+          { name: "genres_Accounting", value: 1 },
+          { name: "genres_Sports", value: 1 },
+          { name: "genres_Episodic", value: 1 },
+          { name: "genres_Nudity", value: 1 },
+          { name: "genres_Movie", value: 1 },
+          { name: "genres_Utilities", value: 1 },
+          { name: "genres_Casual", value: 1 },
+          { name: "genres_Indie", value: 1 },
+          { name: "genres_Software Training", value: 1 },
+          { name: "genres_Action", value: 1 },
+          { name: "genres_Massively Multiplayer", value: 1 },
+          { name: "genres_Education", value: 1 },
+          { name: "genres_Early Access", value: 1 },
+          { name: "genres_Web Publishing", value: 1 },
+          { name: "genres_Free to Play", value: 1 },
+          { name: "genres_Design & Illustration", value: 1 },
+          { name: "genres_Others", value: 1 },
+          { name: "genres_Photo Editing", value: 1 },
+          { name: "genres_Game Development", value: 1 },
+          { name: "genres_RPG", value: 1 },
+          { name: "genres_Sexual Content", value: 1 },
+          { name: "genres_Animation & Modeling", value: 1 },
+          { name: "genres_Racing", value: 1 },
+          { name: "genres_360 Video", value: 1 },
+          { name: "genres_Simulation", value: 1 },
+          { name: "genres_Tutorial", value: 1 },
+          { name: "genres_Documentary", value: 1 },
+          { name: "genres_Video Production", value: 1 },
+          { name: "genres_Violent", value: 1 },
+          { name: "genres_Audio Production", value: 1 },
+          { name: "genres_Gore", value: 1 },
+          { name: "genres_Strategy", value: 1 },
+          { name: "genres_Short", value: 1 },
+        ] 
+      },
+
+      { name: "price",  
+		    children: [
+        {name:"is_free",value:1},
+        ]
+      },
+
+      {
+        name: "achievements",
+        children: [
+          { name: "is_achievements", value: 1 },
+        ]
+      },
+
+      { 
+        name: "supported_audio",
+        children: [
+          { name: "is_supported_audio", value: 1 },
+        ]        
+      },
+
+      {
+        name: "required_age",
+		    children:[
+        {name:"is_required_age",value:1},
+        ]
+      },
+
+      { name: "movie",  
+		    children: [
+        {name:"movieornot",value:1},
+        ]
+      },
+    ]
+  },
+  {
+    name: "Other\nmathood",
+    children: [
+      { name: "release_date",
+      children: [
+        { name: "leadtime",value:1},
+        { name: "release_year", value: 1},
+        { name: "release_month", value: 1 },
+        { name: "release_quarter", value: 1 }]},
+
+      {name: "supported_audio",
+        children: [
+      { name: "supported_audio_count", value: 1 },]
+      },
+      
+      {name: "owners",
+        children: [
+      { name: "owners_avg", value: 1 },
+      { name: "owners_label", value: 1 },
+      { name: "owners_20000", value: 1 }]
+      },
+
+      {name: "cluster",
+        children: [
+      { name: "K_Price_2", value: 1 },
+      { name: "K_Price_4", value: 1 },
+      { name: "K_Genres_16", value: 1 },
+      { name: "K_Genres_6", value: 1 },
+      { name: "K_Pub_2", value: 1 },
+      { name: "K_Pub_3", value: 1 },
+      { name: "K_Ach_2", value: 1 },
+      { name: "K_Time_2", value: 1 },
+      { name: "K_Platform_4'", value: 1 },
+      { name: "K_Platform_3", value: 1 }]
+      },
+
+      {
+        name: "developer",
+        children:[
+        {name:"developer_count",value:1},
+        {name:"developer_size",value:1},
+        {name:"developers_publishers_same",value:1},
+        ]   
+      },
+      {
+        name: "publisher",
+        children:[
+        {name:"publisher_count"},
+        {name:"publisher_size",value:1},
+        ]   
+      }
+    ]}];
+  
+    
+chart.colors.step = 2;
+chart.fontSize = 11;
+chart.innerRadius = am4core.percent(10);
+
+// define data fields
+chart.dataFields.value = "value";
+chart.dataFields.name = "name";
+chart.dataFields.children = "children";
+chart.stroke = am4core.color('#ffffff')
+
+var level0SeriesTemplate = new am4plugins_sunburst.SunburstSeries();
+level0SeriesTemplate.hiddenInLegend = false;
+chart.seriesTemplates.setKey("0", level0SeriesTemplate)
+
+// this makes labels to be hidden if they don't fit
+level0SeriesTemplate.labels.template.truncate = true;
+level0SeriesTemplate.labels.template.hideOversized = true;
+
+level0SeriesTemplate.labels.template.adapter.add("rotation", function(rotation, target) {
+  target.maxWidth = target.dataItem.slice.radius - target.dataItem.slice.innerRadius - 10;
+  target.maxHeight = Math.abs(target.dataItem.slice.arc * (target.dataItem.slice.innerRadius + target.dataItem.slice.radius) / 2 * am4core.math.RADIANS);
+
+  return rotation;
+})
+
+
+var level1SeriesTemplate = level0SeriesTemplate.clone();
+chart.seriesTemplates.setKey("1", level1SeriesTemplate)
+level1SeriesTemplate.fillOpacity = 0.75;
+level1SeriesTemplate.hiddenInLegend = true;
+
+var level2SeriesTemplate = level0SeriesTemplate.clone();
+chart.seriesTemplates.setKey("2", level2SeriesTemplate)
+level2SeriesTemplate.fillOpacity = 0.5;
+level2SeriesTemplate.hiddenInLegend = true;
+
+chart.legend = new am4charts.Legend();
+
+}); // end am4core.ready()
+</script>
+
+</body>
+</html>

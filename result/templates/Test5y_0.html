@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>STEAM STORE GAMES</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../static/dir/gamepad.ico">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="../static/style1.css"/>
+
+  <style>
+    h1,h2{
+      color:#ffc800;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-collapse w3-top w3-large w3-padding menu2" style="z-index:3;width:230px;font-weight:bold;background-color:#002845" id="mySidebar"><br>
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+    <div class="w3-container" >
+      <h2 class="w3-padding-64 w3-xxxlarge" style="margin-top:-30px;color:#00cfcc"><b>Menu</b></h2>
+    </div>
+    <div style="color:white">
+      <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray">Home</a><br/> 
+      <a href="/Test1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray blue">Step1 專題主題</a><br/>
+      <a href="/Test2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray pink" >Step2 資料預處理</a><br/>
+      <a href="/Test3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray orange" >Step3 機器學習</a><br/>  
+      <a href="/Test4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray pinnk" >Step4 結論</a><br/>
+      <a href="/Test5" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray yellow" >來試試看吧!</a><br/>  
+    </div>
+  </nav>
+    
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-hide-large w3-xlarge w3-padding" style="background-color:#002845">
+    <a href="javascript:void(0)" class="w3-button w3-margin-right" onclick="w3_open()" style="color:white">☰</a>
+    <span class="menu2">Menu</span>
+  </header>
+    
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+  
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:230px;background-color:#002845;">
+  
+  <!-- Header -->
+  <div class="w3-container";id="showcase">
+    <h1 class="w3-jumbo"  style="margin-top:75px;"><b>電子遊戲用戶評價之智慧評估系統</b></h1>    
+    <hr class="w3-round linee" style="color:#ffc800">
+  </div>
+    
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="w3-container" id="services" style="margin-top:75px; color:white">
+    <h2 class="w3-xxxlarge"><b>來試試看吧!</b></h2>
+    <hr style="width:50px;border:5px " class="w3-round">
+  <h2>可惜，差一點就可以做出好遊戲了!</h2>
+  <img src="../static/dir/game-over.png">
+  
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</div>
+
+<!-- W3.CSS Container -->
+<div class="w3-container w3-padding-32 w3-css">
+    <p class="w3-right">Powered by
+    <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
+</div>
+  
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+  
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+</body>
+</html>

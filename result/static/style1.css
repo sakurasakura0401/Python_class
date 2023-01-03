@@ -1,0 +1,37 @@
+/* CSS styles */
+
+body,h1,h2,h3,h4,h5 {font-family: "Microsoft JhengHei", sans-serif}
+body {font-size:16px;}
+    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+    .w3-half img:hover{opacity:1}
+
+/*base Color(class)*/
+.menu2{
+    color:white;
+}
+.blue{
+    color:#00cfcc;
+}
+.pink{
+    color:#e898ac;
+}
+.orange{
+    color:#ff9973;
+}
+.pinnk{
+    color:#f64975;
+}
+.yellow{
+    color:#ffc800;
+}
+
+/* style(class) */
+.linee{
+    width:100%;
+    border:5px solid;
+}
+
+.w3-css{
+    padding-right:58px;
+    background-color:#002845;
+}

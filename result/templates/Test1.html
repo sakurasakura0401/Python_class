@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>STEAM STORE GAMES</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../static/dir/gamepad.ico">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="../static/style1.css"/>
+
+  <style>
+    h1,h2{
+      color:#00cfcc;
+    }
+  </style>
+
+  <!-- Styles -->
+  <style>
+    #chartdiv {
+    width: 100%;
+    height: 600px;
+    }
+  </style>
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/wc.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+</head>
+
+<body>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-top w3-large w3-padding menu2" style="z-index:3;width:230px;font-weight:bold;background-color:#002845" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container" >
+    <h2 class="w3-padding-64 w3-xxxlarge" style="margin-top:-30px;color:#00cfcc"><b>Menu</b></h2>
+  </div>
+  <div style="color:white">
+    <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray">Home</a><br/> 
+    <a href="/Test1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray blue">Step1 專題主題</a><br/>
+    <a href="/Test2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray pink" >Step2 資料預處理</a><br/>
+    <a href="/Test3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray orange" >Step3 機器學習</a><br/>  
+    <a href="/Test4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray pinnk" >Step4 結論</a><br/>
+    <a href="/Test5" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray yellow" >來試試看吧!</a><br/>  
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-xlarge w3-padding" style="background-color:#002845">
+  <a href="javascript:void(0)" class="w3-button w3-margin-right" onclick="w3_open()" style="color:white">☰</a>
+  <span class="menu2">Menu</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:230px;background-color:#002845;">
+
+  <!-- Header -->
+  <div class="w3-container";id="showcase">
+    <h1 class="w3-jumbo"  style="margin-top:75px;"><b>電子遊戲用戶評價之智慧評估系統</b></h1>    
+    <hr class="w3-round linee" style="color:#00cfcc">
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="w3-container" id="services" style="margin-top:75px; color:white">
+    <h2 class="w3-xxxlarge"><b>Step 1-1 專題主題</b></h2><br/>
+    <!-- HTML -->
+    <div id="chartdiv"></div>
+
+    <h3>&emsp;&emsp;<a href="https://store.steampowered.com/">Steam</a>
+    為目前全球最大規模的電子遊戲數位發行服務平台。為Valve於2003年推出提供自動更新遊戲的服務，最初僅支援Microsoft Windows系統，
+    後續發布Mac OS、Linux版本，且功能陸續擴充可支援第三方遊戲發行商發行作品、數位版權管理(CEG，自訂可執行檔生成)、遊戲伺服器配對、VAC反作弊系統、社群網路...等功能。<br/>
+    &emsp;&emsp;Steam的成功使Valve逐漸向硬體市場邁進，除了開發配備Steam OS和Steam Controller的Steam Machine電競電腦，可用於本地遊戲的Steam Link機上盒，
+    2022年新發布了Steam Deck掌機<a href="https://zh.wikipedia.org/zh-tw/Steam">(維基百科)</a>。</h3>
+    <br/><br/>
+    <h2 class="w3-xxxlarge"><b>Step 1-2取得資料</b></h2><br/>   
+    <img src="../static/dir/Kaggle_logo.png" style="width:300px;display:block; margin:auto;" >
+    <h3>&emsp;&emsp;資料主要來源於<a href="https://www.kaggle.com/">Kaggle</a>
+    ，此平台為全世界公認最大的資料科學社群，除了企業和研究者可以在上面發布數據，統計學者和數據挖掘專家也可以在上面使用這些數據。
+    <a href="https://www.kaggle.com/">Kaggle</a>上隨時都有各種資料分析比賽正在進行，也因為這些比賽皆會提供獎金，故因此吸引大量資料科學家前來比賽，且會於討論區留下當初思考問題的脈絡，參考上面的討論串也可提升自己對於巨型資料的思考能力
+    <a href="https://zh.wikipedia.org/zh-tw/Kaggle">(維基百科)</a>。</h3>
+    <hr/>
+    <h3>&emsp;&emsp;此次專題主要使用的DataSet為:<br/>
+    <ul>
+    <li><a href="https://www.kaggle.com/datasets/nikdavis/steam-store-games">Steam Store Games(Clean Dataset)</a>資料量為27K筆及26格欄位。</li>
+    <li><a href="https://www.kaggle.com/datasets/mikekzan/steam-games-dlcs?select=steamspy_tag_data.csv">Steam Games and DLCs Dataset</a>資料量為103K筆及26格欄位。</li>
+    </ul></h3>
+    <br/><br/>
+    <h2 class="w3-xxxlarge"><b>Step 1-3匯入資料庫</b></h2><br/>    
+    <img src="../static/dir/MySQL_logo.png" style="width:300px;display:block; margin:auto;">
+    <h3>&emsp;&emsp;準備好要使用的資料之後，藉由<a href="https://www.python.org/">Python</a>
+    的Pandas套件匯入<a href="https://www.mysql.com/">MySQL</a>資料庫。</h3>
+  </div>
+</div>
+
+<!-- W3.CSS Container -->
+<div class="w3-container w3-padding-32 w3-css">
+    <p class="w3-right">Powered by
+    <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+<!-- Chart code -->
+<script>
+am5.ready(function() {
+
+// Create root element
+// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+var root = am5.Root.new("chartdiv");
+
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+am5themes_Animated.new(root)
+]);
+
+
+// Add wrapper container
+var container = root.container.children.push(am5.Container.new(root, {
+width: am5.percent(100),
+height: am5.percent(100),
+layout: root.verticalLayout
+}));
+
+
+// Add chart title
+var title = container.children.push(am5.Label.new(root, {
+text: "Most popular Tags on Steam",
+fontSize: 20,
+fill: am5.color(0xffffff),
+x: am5.percent(50),
+centerX: am5.percent(50)
+}));
+
+
+// Add series
+// https://www.amcharts.com/docs/v5/charts/word-cloud/
+var series = container.children.push(am5wc.WordCloud.new(root, {
+categoryField: "tag",
+valueField: "weight",
+calculateAggregates: true // this is needed for heat rules to work
+}));
+
+
+// Set up heat rules
+// https://www.amcharts.com/docs/v5/charts/word-cloud/#Via_heat_rules
+series.set("heatRules", [{
+target: series.labels.template,
+dataField: "value",
+min: am5.color(0xFFD4C2),
+max: am5.color(0xFF621F),
+key: "fill"
+}]);
+
+
+// Configure labels
+series.labels.template.setAll({
+paddingTop: 5,
+paddingBottom: 5,
+paddingLeft: 5,
+paddingRight: 5,
+fontFamily: "Courier New",
+cursorOverStyle: "pointer"
+});
+
+
+// Add click event on words
+// https://www.amcharts.com/docs/v5/charts/word-cloud/#Events
+series.labels.template.events.on("click", function(ev) {
+const category = ev.target.dataItem.get("category");
+window.open("https://store.steampowered.com/tags/zh-tw/" + encodeURIComponent(category));
+});
+
+
+// Data from:
+// https://insights.stackoverflow.com/survey/2021#section-most-popular-technologies-programming-scripting-and-markup-languages
+series.data.setAll([{'tag': 'action', 'weight': 2699151},
+{'tag': 'adventure', 'weight': 2205624},
+{'tag': 'indie', 'weight': 2190795},
+{'tag': 'singleplayer', 'weight': 1874830},
+{'tag': 'casual', 'weight': 1839494},
+{'tag': 'strategy', 'weight': 1314191},
+{'tag': '2d', 'weight': 1267721},
+{'tag': 'simulation', 'weight': 1236845},
+{'tag': 'rpg', 'weight': 1211831},
+{'tag': 'multiplayer', 'weight': 1072952},
+{'tag': 'atmospheric', 'weight': 969567},
+{'tag': 'exploration', 'weight': 870059},
+{'tag': 'shooter', 'weight': 839924},
+{'tag': 'first_person', 'weight': 819367},
+{'tag': 'puzzle', 'weight': 817589},
+{'tag': 'story_rich', 'weight': 812959},
+{'tag': '3d', 'weight': 759056},
+{'tag': 'open_world', 'weight': 738246},
+{'tag': 'colorful', 'weight': 709156},
+{'tag': 'pixel_graphics', 'weight': 696760},
+{'tag': 'early_access', 'weight': 684457},
+{'tag': 'free_to_play', 'weight': 677130},
+{'tag': 'survival', 'weight': 676268},
+{'tag': 'fps', 'weight': 641427},
+{'tag': 'cute', 'weight': 641307},
+{'tag': 'arcade', 'weight': 612469},
+{'tag': 'funny', 'weight': 609664},
+{'tag': 'horror', 'weight': 606242},
+{'tag': 'co_op', 'weight': 577515},
+{'tag': 'fantasy', 'weight': 567198},
+{'tag': 'action_adventure', 'weight': 529964},
+{'tag': 'sandbox', 'weight': 511822},
+{'tag': 'third_person', 'weight': 511456},
+{'tag': 'sci_fi', 'weight': 501330},
+{'tag': 'platformer', 'weight': 498968},
+{'tag': 'difficult', 'weight': 465137},
+{'tag': 'pvp', 'weight': 459214},
+{'tag': 'anime', 'weight': 441781},
+{'tag': 'family_friendly', 'weight': 420221},
+{'tag': 'relaxing', 'weight': 400512},
+{'tag': 'online_co_op', 'weight': 385307},
+{'tag': 'realistic', 'weight': 379761},
+{'tag': 'female_protagonist', 'weight': 366558},
+{'tag': 'comedy', 'weight': 364339},
+{'tag': 'retro', 'weight': 364058},
+{'tag': 'top_down', 'weight': 352444},
+{'tag': '2d_platformer', 'weight': 350189},
+{'tag': 'stylized', 'weight': 346371},
+{'tag': 'tactical', 'weight': 341479},
+{'tag': 'visual_novel', 'weight': 334885},
+{'tag': 'action_rpg', 'weight': 332493},
+{'tag': 'building', 'weight': 321906},
+{'tag': 'choices_matter', 'weight': 318115},
+{'tag': 'cartoony', 'weight': 308368},
+{'tag': 'crafting', 'weight': 301975},
+{'tag': 'great_soundtrack', 'weight': 301516},
+{'tag': 'point_&_click', 'weight': 299373},
+{'tag': 'physics', 'weight': 288962},
+{'tag': 'character_customization', 'weight': 284828},
+{'tag': 'minimalist', 'weight': 277418}]);
+
+}); // end am5.ready()
+</script>
+
+</body>
+</html>

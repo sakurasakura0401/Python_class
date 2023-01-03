@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>STEAM STORE GAMES</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../static/dir/gamepad.ico">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="../static/style1.css"/>
+
+  <style>
+    h1,h2{
+      color:#ff9973;
+    }
+  </style>
+
+  <!-- Styles -->
+<style>
+  #chartdiv {
+    width: 100%;
+  height:550px;
+  }
+  </style>
+  
+  <!-- Resources -->
+  <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/plugins/forceDirected.js"></script>
+  <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+</head>
+
+<body>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-top w3-large w3-padding menu2" style="z-index:3;width:230px;font-weight:bold;background-color:#002845;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container" >
+    <h2 class="w3-padding-64 w3-xxxlarge" style="margin-top:-30px;color:#00cfcc"><b>Menu</b></h2>
+  </div>
+  <div style="color:white">
+    <a href="/" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray">Home</a><br/> 
+    <a href="/Test1" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray blue">Step1 專題主題</a><br/>
+    <a href="/Test2" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray pink" >Step2 資料預處理</a><br/>
+    <a href="/Test3" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray orange" >Step3 機器學習</a><br/>  
+    <a href="/Test4" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray pinnk" >Step4 結論</a><br/>
+    <a href="/Test5" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-gray yellow" >來試試看吧!</a><br/>  
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-xlarge w3-padding menu2" style="background-color:#002845">
+  <a href="javascript:void(0)" class="w3-button w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Menu</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:230px;background-color:#002845;">
+
+  <!-- Header -->
+  
+  <div class="w3-container";id="showcase">
+    <h1 class="w3-jumbo"  style="margin-top:75px;"><b>電子遊戲用戶評價之智慧評估系統</b></h1>    
+    <hr class="w3-round linee" style="color:#ff9973">
+  </div>
+
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  
+
+  <!-- Services -->
+  <div class="w3-container" id="services" style="margin-top:75px; color:white">
+    <h2 class="w3-xxxlarge"><b>Step3 機器學習</b></h2>
+    <h2>Step3-1 機器學習(Machine Learning,ML)是什麼?</h2>
+      <!-- HTML -->
+      <div id="chartdiv"></div>
+    <h3>&emsp;&emsp;簡單來說，就是讓計算機用資料來學習。<br/>
+    &emsp;&emsp;機器不像人類，只要重複學習數次，就可以明確辨識出各種顏色及形狀的物體，大多數的機器仍需要上千筆甚至數百萬筆的樣本才能正確運作。
+    <h2>Step3-2 預測目標</h2>
+    <h3>&emsp;&emsp;本次專案是以<b>遊戲評價</b>作為預測目標，因此利用Steam資料集中的正、負面評價套用Rating公式
+    ，將數值 >= 0.7的定義為1(壓倒性好評、極度好評、大多好評、好評)，數值 < 0.7的數值定義為0(褒貶不一以下)，
+    最終新增欄位Rating Scale，成為此專案的目標欄位。</h3>
+
+    <h2>Step3-3 數值型資料直接訓練</h2>
+    <h3>&emsp;&emsp;我們推斷是太多不相關欄位影響模型準確率，因此欲運用特徵選擇法，針對目標欄位與其變數，將相關係數過低的移除，也同步觀察相關係數過高的欄位，
+    排除Data Leakage，避免上線出現預測不準確的問題。<hr/>
+    <div style="overflow-x:auto">
+    <table border="1" style="width:80%;margin:auto">
+      <tr>
+        <th>模型</th>
+        <th>參數</th>
+        <th>訓練(Y=0)</th>
+        <th>訓練(Y=1)</th>
+        <th>Accuracy</th>
+        <th>測試(Y=0)</th>
+        <th>測試(Y=1)</th>
+        <th>Accuracy</th>
+      </tr>
+      <tr>
+        <th>CART</th>
+        <td>criterion="gini",<br/>max_depth=50,<br/>min_samples_leaf=600</td>
+        <th>83%</th>
+        <th>44%</th>
+        <th>68%</th>
+        <th>82%</th>
+        <th>44%</th>
+        <th>67%</th>
+      </tr>
+      <tr>
+        <th>C45</th>
+        <td>criterion="entropy",<br/>max_depth=50,<br/>min_samples_leaf=600</td>
+        <th>87%</th>
+        <th>35%</th>
+        <th>67%</th>
+        <th>86%</th>
+        <th>36%</th>
+        <th>66%</th>
+      </tr>
+      <tr>
+        <th>Extra Tree</th>
+        <td>criterion="gini",<br/>max_depth=20,<br/>n_estimatore=1500</td>
+        <th>94%</th>
+        <th>23%</th>
+        <th>67%</th>
+        <th>94%</th>
+        <th>23%</th>
+        <th>67%</th>
+      </tr>
+      <tr>
+        <th>Random Forest</th>
+        <td>criterion="entropy",<br/>min_samples_leaf=50,<br/>n_estimatore=1000</td>
+        <th>90%</th>
+        <th>33%</th>
+        <th>69%</th>
+        <th>89%</th>
+        <th>33%</th>
+        <th>68%</th>
+      </tr>
+      <tr>
+        <th>AdaBoost</th>
+        <td>random_state=0,<br/>learning_rate=1,<br/>n_estimatore=500</td>
+        <th>87%</th>
+        <th>38%</th>
+        <th>68%</th>
+        <th>85%</th>
+        <th>39%</th>
+        <th>68%</th>
+      </tr>
+      <tr>
+        <th>XGBoost</th>
+        <td>max_depth=6,<br/>learning_rate=0.3,<br/>n_estimatore=100</td>
+        <th>95%</th>
+        <th>58%</th>
+        <th>81%</th>
+        <th>81%</th>
+        <th>42%</th>
+        <th>66%</th>
+      </tr>
+      <tr>
+        <th style="background-color:#ff9973;color:#002845;">LightGBM</th>
+        <td>defult</td>
+        <th>89%</th>
+        <th>44%</th>
+        <th>72%</th>
+        <th style="background-color:#ff9973;color:#002845;">85%</th>
+        <th style="background-color:#ff9973;color:#002845;">44%</th>
+        <th style="background-color:#ff9973;color:#002845;">68%</th>
+      </tr>
+      <tr>
+        <th>Gradient Boosting</th>
+        <td>default</td>
+        <th>94%</th>
+        <th>60%</th>
+        <th>82%</th>
+        <th>80%</th>
+        <th>41%</th>
+        <th>65%</th>
+      </tr>
+      <tr>
+        <th>CatBoost</th>
+        <td>iterations=20,<br/>learning_rate=1,<br/>depth=10,<br/>loss_funtion="MultiClass"</td>
+        <th>88%</th>
+        <th>43%</th>
+        <th>71%</th>
+        <th>84%</th>
+        <th>40%</th>
+        <th>67%</th>
+      </tr></table></div></h3>
+
+    <h2>Step3-4 特徵工程</h2>
+    <h3>&emsp;&emsp;總欄位為117欄，將目標欄位與變數欄位進行相關性係數分析，篩選過低及過高的欄位釐清資料定義，以避免造成DataLeakage問題，導致模型上線出現預測不準確的問題。<br/>
+    設定Drop corr < 0.02欄位，並觀察corr > 0.5是否與Y有共線性問題，結果欄位數從117欄剩餘67欄。</h3>
+
+    <h2>Step3-5 資料清洗+特徵工程後的訓練</h2>
+    <h3>&emsp;&emsp;經過以上調整後，表現最好的是XG Boost、LightGBM可以看出好評及壞評遊戲預測，且整體準確度都提高了!
+    但仔細觀察好壞評遊戲預測的準度仍有40%差距。</h3>
+
+    <h2>Step3-6 利用Kmean分群+Elbow Method後的訓練</h2>
+    <h3>&emsp;&emsp;而我們也嘗試利用K-means + Elbow Method將相關欄位(包含時間、遊戲類型、價格訊息...等)進行cluster分群，
+    並新加入至欄位中進行預測，最好的模型為XG Boost、Light GBM，但也發現準確率幾乎沒有變化。</h3>
+
+    <h2>Step3-7 如何提高好評資料準確度?</h2>
+    <h3>&emsp;&emsp;經實驗結果分析，原資料集中有資料不平衡現象，導致目前Y = 0的準確度極高，但Y = 1 準確度偏低。<br/>
+      因此於參考模型手冊後，想了以下方案:
+      <ol>
+      <li>模型中的參數調整:<b>Class_wieght = 'balanced'</b></li>
+      <li>因部分模型(XG Boost、Gradient Boosting)沒有調整權重的參數，因此利用Oversampling在訓練集增加Y = 1 的筆數。</li>
+      </ol>
+    </h3>
+    
+    <h2>Step3-8 Class_weight = 'balanced'後的訓練</h2>
+    <h3>&emsp;&emsp;將模型的參數調整後，整體準確率最好的是Random Forset及Light GBM，準確率沒有太大變化的前提下，
+    好評遊戲及壞評遊戲的預測準確率差距縮減至5%左右，可避免一面倒的情形。<hr/>
+    <div style="overflow-x:auto">
+    <table border="1" style="width:80%;margin:auto">
+      <tr>
+        <th>模型</th>
+        <th>參數</th>
+        <th>訓練(Y=0)</th>
+        <th>訓練(Y=1)</th>
+        <th>Accuracy</th>
+        <th>測試(Y=0)</th>
+        <th>測試(Y=1)</th>
+        <th>Accuracy</th>
+      </tr>
+      <tr>
+        <th>CART</th>
+        <td>criterion="gini",<br/>max_depth=50,<br/>class_weight="balanced"</td>
+        <th>73%</th>
+        <th>73%</th>
+        <th>73%</th>
+        <th>73%</th>
+        <th>72%</th>
+        <th>73%</th>
+      </tr>
+      <tr>
+        <th>C45</th>
+        <td>criterion="entropy",<br/>max_depth=5,<br/>class_weight="balanced"</td>
+        <th>73%</th>
+        <th>73%</th>
+        <th>73%</th>
+        <th>72%</th>
+        <th>73%</th>
+        <th>73%</th>
+      </tr>
+      <tr>
+        <th>Extra Tree</th>
+        <td>criterion="gini",max_depth=5,<br/>n_estimatore=100,<br/>class_weight="balanced"</td>
+        <th>73%</th>
+        <th>73%</th>
+        <th>73%</th>
+        <th>72%</th>
+        <th>72%</th>
+        <th>72%</th>
+      </tr>
+      <tr>
+        <th>Extra Tree</th>
+        <td>criterion="gini",max_depth=5,<br/>n_estimatore=100,<br/>class_weight="balanced_subsample"</td>
+        <th>73%</th>
+        <th>72%</th>
+        <th>73%</th>
+        <th>73%</th>
+        <th>71%</th>
+        <th>72%</th>
+      </tr>
+      <tr>
+        <th style="background-color:#ff9973;color:#002845;">Random Forest</th>
+        <td>criterion="gini",<br/>min_samples_split=2,<br/>class_weight="balanced_subsample"</td>
+        <th>75%</th>
+        <th>82%</th>
+        <th>72%</th>
+        <th style="background-color:#ff9973;color:#002845;">74%</th>
+        <th style="background-color:#ff9973;color:#002845;">78%</th>
+        <th style="background-color:#ff9973;color:#002845;">75%</th>
+      </tr>
+      <tr>
+        <th>AdaBoost</th>
+        <td>n_estimatore=500,<br/>learning_rate=0.5,<br/>algorithm="SAMME.R"</td>
+        <th>96%</th>
+        <th>29%</th>
+        <th>81%</th>
+        <th>96%</th>
+        <th>29%</th>
+        <th>81%</th>
+      </tr>
+      <tr>
+        <th style="background-color:#ff9973;color:#002845;">LightGBM</th>
+        <td>n_estimatore=100,learning_rate=0.3,<br/>max_depth=6,seed=1000,<br/>class_weight="balanced"</td>
+        <th>75%</th>
+        <th>83%</th>
+        <th>76%</th>
+        <th style="background-color:#ff9973;color:#002845;">74%</th>
+        <th style="background-color:#ff9973;color:#002845;">80%</th>
+        <th style="background-color:#ff9973;color:#002845;">75%</th>
+      </tr>
+      <tr>
+        <th>CatBoost</th>
+        <td>iterations=20,learning_rate=1,<br/>depth=2,loss_function="MultiClass",<br/>auto_class_weights="Balanced"</td>
+        <th>71%</th>
+        <th>78%</th>
+        <th>72%</th>
+        <th>71%</th>
+        <th>77%</th>
+        <th>72%</th>
+      </tr></table></div></h3>
+
+    <h2>Step3-9 Oversampling</h2>
+    <h3>&emsp;&emsp;接著利用Boostrapping方式將好評遊戲重複抽後放回，直到與壞評遊戲資料數量達成一致，經過XGBOOST及Gradient boosting模型訓練下，發現預測準確率沒有太大改變。</h3>
+
+    <h2>Step3-10 Voting System</h2>
+    <h3>&emsp;&emsp;在多個模型預測準確率很高的情況下，利用投票的概念設計投票系統，將前面預測結果不錯的模型全部進行投票，輸入為資料，經過多個模型進行預測輸出0或1，最終以多數取勝。
+    可以發現整體準確度來到了77%，好評遊戲和壞評遊戲準確率差距也降至0%，證明了此投票系統的實用性。<hr/>
+    <div style="overflow-x:auto">
+    <table border="1" style="width:80%;margin:auto">
+      <tr>
+        <th>模型</th>
+        <th>測試(Y=0)</th>
+        <th>測試(Y=1)</th>
+        <th>Accuracy</th>
+        <th>備註(示意圖)</th>
+      </tr>
+      <tr>
+        <th>Voting<br/>System</th>
+        <th>77%</th>
+        <th>77%</th>
+        <th>77%</th>
+        <td><img src="../static/dir/voting.jpg" style="width:640px"></td>
+      </tr>
+    </table></div></h3>
+    <h2>※模型準確率比較</h2>
+    <img src="../static/dir/point.jpg" style="width:75%;display:block;margin:auto">
+
+    <h2>遊戲屬性關聯分析</h2>
+    <h3>&emsp;&emsp;針對遊戲類型利用FP TREE建構遊戲類型推薦系統。<hr/>
+    <div style="overflow-x:auto">
+    <table border="1" style="width:80%;margin:auto">
+      <tr>
+        <th>選擇遊戲類型</th>
+        <th>推薦遊戲類型</th>
+      </tr>
+      <tr>
+        <td>Action,Single_player</td>
+        <td>Indie,Adventure</td>
+      </tr>
+      <tr>
+        <td>Single_player,Indie</td>
+        <td>Casual</td>
+      </tr>
+      <tr>
+        <td>Single_player,Indie</td>
+        <td>Adventure</td>
+      </tr>
+      <tr>
+        <td>Single_player,Strategy</td>
+        <td>Indie</td>
+      </tr>
+      <tr>
+        <td>Action,Indie</td>
+        <td>Casual</td>
+      </tr>
+      <tr>
+        <td>Single_player,Indie</td>
+        <td>Simulation</td>
+      </tr>
+    </table></div></h3>
+  </div>
+</div>
+
+<!-- W3.CSS Container -->
+<div class="w3-container w3-padding-32 w3-css">
+    <p class="w3-right">Powered by
+    <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p>
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+</script>
+
+<!-- Chart code -->
+<script>
+  am4core.ready(function() {
+  
+  // Themes begin
+  am4core.useTheme(am4themes_animated);
+  // Themes end
+  
+  var chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
+  
+  var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
+  networkSeries.dataFields.linkWith = "linkWith";
+  networkSeries.dataFields.name = "name";
+  networkSeries.dataFields.id = "name";
+  networkSeries.dataFields.value = "value";
+  networkSeries.dataFields.children = "children";
+  
+  networkSeries.nodes.template.label.text = "{name}"
+  networkSeries.fontSize = 16;
+  networkSeries.linkWithStrength = 0;
+  
+  var nodeTemplate = networkSeries.nodes.template;
+  nodeTemplate.tooltipText = "{name}";
+  nodeTemplate.fillOpacity = 1;
+  nodeTemplate.label.hideOversized = true;
+  nodeTemplate.label.truncate = true;
+  
+  var linkTemplate = networkSeries.links.template;
+  linkTemplate.strokeWidth = 1;
+  var linkHoverState = linkTemplate.states.create("hover");
+  linkHoverState.properties.strokeOpacity = 1;
+  linkHoverState.properties.strokeWidth = 2;
+  
+  nodeTemplate.events.on("over", function (event) {
+      var dataItem = event.target.dataItem;
+      dataItem.childLinks.each(function (link) {
+          link.isHover = true;
+      })
+  })
+  
+  nodeTemplate.events.on("out", function (event) {
+      var dataItem = event.target.dataItem;
+      dataItem.childLinks.each(function (link) {
+          link.isHover = false;
+      })
+  })
+  
+  networkSeries.data = [  
+  {  
+      "name":"一般決策樹",
+      "value":400,
+      "children":[  
+          {  
+          "name":"Cart Tree",
+          "value":300
+          },
+          {  
+          "name":"C45 tree",
+          "value":300
+          },
+          {  
+          "name":"Extra tree",
+          "value":300
+          },
+          {  
+          "name":"Random\n Forest",
+          "value":300
+          },
+      ]
+  },
+  {  
+      "name":"深度學習",
+      "value":400,
+      "linkWith":[ 
+          "Emily",
+      ],
+      "children":[  
+          {  
+          "name":"DNN",
+          "value":300
+          },
+      ]
+  },
+  {  
+      "name":"向量機-SVM",
+      "value":400,
+      "linkWith":[  
+          "Boosting",
+      ],
+  },
+  {  
+      "name":"Boosting決策樹",
+      "value":400,
+      "children":[  
+          {  
+          "name":"Gradient\n Boosting",
+          "value":300
+          },
+          {  
+          "name":"Ada Boost",
+          "value":300
+          },
+          {  
+          "name":"XG Boost",
+          "value":300
+          },
+          {  
+          "name":"Cat Boost",
+          "value":300
+          },
+          {  
+          "name":"Light GBM",
+          "value":300
+          },
+      ]
+  },
+  {  
+      "name":"Voting System",
+      "value":400,
+      "linkWith":[  
+          "深度學習",
+          "向量機-SVM",
+          "一般決策樹",
+          "Boosting決策樹"
+      ],
+  },];
+}); // end am4core.ready()
+</script>
+</body>
+</html>
